@@ -12,12 +12,12 @@
 # from moduleName import ModuleItem
 # THEN CAN USE THE ModuleItem WITHOUT THE DOT NOTATION BEHIND THE moduleName
 
-# import camelcase
-# c = camelcase.CamelCase()
+import camelcase
+c = camelcase.CamelCase()
 
-# text = "hello my name is klee whatup"
+text = "hello my name is klee whatup"
 
-# print(c.hump(text))
+print(c.hump(text))
 
 
 
@@ -98,15 +98,15 @@ if __name__ == '__main__':
 # TO CALL A COROUTINE FUNCTION YOU MUST AWAIT IT TO GET RESULTS
 # THIS IS USING A CHROME BROWSER TO CONTROL THE WEBPAGE - THIS ISNT VISIBLE TO USER IT IS "HEADLESS"
 
-# import asyncio
-# from pyppeteer import launch
+import asyncio
+from pyppeteer import launch
 
-# async def main():
-#     browser = await launch()
-#     page = await browser.newPage()
-#     await page.goto('https://example.com')
-#     await page.screenshot({'path': 'example.png'})
-#     await browser.close()
+async def main():
+    browser = await launch()
+    page = await browser.newPage()
+    await page.goto('https://example.com')
+    await page.screenshot({'path': 'example.png'})
+    await browser.close()
 
 # asyncio.get_event_loop().run_until_complete(main())
 
