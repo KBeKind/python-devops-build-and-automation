@@ -65,3 +65,133 @@
 # if __name__ == '__main__':
 #     unittest.main(verbosity=2)
 
+
+#----------------------------
+
+
+# HEADLESS BROWSING - PROVIDES AUTOMATED CONTROL OF A WEB PAGE IN A ENVIRONMENT SIMILAR TO WEB BROWSERS
+# Puppeteer IS A POPULAR JAVASCRIPT HEADLESS BROWSING FRAMEWORK
+# Pyppeteer IS A PORT FOR PYTHON THAT IS BASED OFF Puppeteer
+
+# USE CASES FOR HEADLESS BROWSING:
+# TEST AUTOMATION IN WEB APPS
+# TAKING SCREENSHOTS OF WEB PAGES
+# RUNNING AUTOMATED TESTS FOR JAVASCRIPT LIBRARIES
+# SCRAPING WEBSITES FOR DATA
+# AUTOMATING INTERACTION OF WEB PAGES
+
+# MALICIOUS USES OF HEADLESS BROWSING:
+# DDoS ATTACKS
+# INCREASE ADVERTISEMENT IMPRESSIONG
+# AUTOMATE WEBSITES IN UNINTENDED WAYS
+
+
+# pip install pyppeteer
+
+
+# WRITING SCRIPTS FOR HEADLESS BROWSING TO VISIT WEBPAGES
+
+# COROUTINES: COMPUTER PROGRAM COMPONENTS THAT GENERALIZE SUBROUTINES FOR NON-PREEMPTIVE MULTITASKING
+# Asyncio MODULE PROVIDES ASYNC/AWAIT SYNTAX TO BUILD ASYNC COROUTINES
+
+# ASYNC AND AWAIT
+# TO CALL A COROUTINE FUNCTION YOU MUST AWAIT IT TO GET RESULTS
+# THIS IS USING A CHROME BROWSER TO CONTROL THE WEBPAGE - THIS ISNT VISIBLE TO USER IT IS "HEADLESS"
+
+# import asyncio
+# from pyppeteer import launch
+
+# async def main():
+#     browser = await launch()
+#     page = await browser.newPage()
+#     await page.goto('https://example.com')
+#     await page.screenshot({'path': 'example.png'})
+#     await browser.close()
+
+# asyncio.get_event_loop().run_until_complete(main())
+
+
+# EXTRACTING HTML ELEMENTS
+# Page CLASS PROVIDES METHODS TO INTERACT WITH A SINGLE TAB OF CRHOME
+# Goto FUNCITON TO LOAD URL
+# Screenshot FUNCTION TO TAKE SCREENSHOTS
+# Content FUNCTION TO GET HTML CONTENT AS A STRING
+# Metrics FUNCTION TO RETURN A DICTIONARY OF METRICS IN KEY VALUE PAIRS
+# Emulate FUNCTION TO SET USER AGENT AND OTHER BROWSER CHARACTERISTICS
+
+#SELECTING DOM ELEMENTS
+# querySelector FUNCTION TO SELECT A SINGLE ELEMENT FROM THE PAGE
+# querySelectorAll FUNCTION TO SELECT MULTIPLE ELEMENTS FROM THE PAGE
+# xPath FUNCTION TO SELECT ELEMENTS BY XPATH
+
+# element = await.page.querySelector('h1')
+
+# RUNNING JAVASCRIPT IN CONTEXT OF A PAGE
+# Pyppeteer TRIES TO AUTOMATICALLY DETECT IF THE STRING IS A FUNCTION OR EXPRESSION
+# force_expr=True OPTION FORCES PYPPETEER TO TREAT THE STRING AS EXPRESSION
+
+# RETURNS COLLECTION OF 3 ELEMENTS WIDTH, HEIGHT, AND DEVICE SCALE FACTOR
+# dimensions = await page.evaluate('''() = {
+#     return {
+#         width: document.documentElement.clientWidth,
+#         height: document.documentElement.clientHeight,
+#         deviceScaleFactor: window.devicePixelRatio,
+#             }
+#         }''')
+
+
+
+# ---------------------------------
+
+# CONTAINERS FOR DEVOPS
+
+# CONTAINERS ARE ISOLATED LIGHTWEIGHT SILO.  SHARES THE KERNEL WITH THE OS
+# CONTAINER PROVIDERS:
+# DOCKER
+# LINUX CONTAINERS: LXC, LXD CGManager
+# WINDOWS SERVER CONTAINERS
+
+# BY DEFAULT CONTAINES ARE IMMUTABLE
+# EASY TO REPRODUCE
+
+# SAMPLE DOCKERFILE:
+# FROM ubuntu:18.04
+# RUN apt-get update && apt-get install -y python3
+# RUN mkdir /app
+# COPY test.py /app/test.py
+# RUN chmod +x /app/test.py
+# ENTRYPOINT ["python3", "/app/test.py"]
+
+# DOCKER COMMAND LINE CONTROLS
+# TO BUILD: docker built -t imageName
+# TO SHOW IMAGES: docker images 
+# TO RUN AN IMAGE: docker run -d -p 8080:8080 imageName
+
+
+# ---------------------------------
+
+# USING PYTHON WITH DOCKER
+# SCRIPTING PYTHON VS HOSTING PYTHON
+
+# SCRIPTING PYTHON USED TO AUTOMATE THE STEPS IN MANAGING DOCKER FILES, IMAGES, AND CONTAINERS
+
+# HOSTING PYTHON IS WHAT IS DONE WHEN PYTHON RUNS INSIDE OF A DOCKER CONTAINER
+
+#pip install docker
+
+# EXAMPLE SCRIPT
+# import docker
+# client = docker.from_env()
+# containers = client.containers.list()
+# container = client.containers.get(containers[0])
+# # OR
+# container = client.containers.get('containerName')
+# logs = container.logs()
+# container.stop()
+
+# USE CASES FOR SCRIPTING
+# RUN IMAGES
+# RUN COMMANDS IN CONTAINERS
+# MEASURE RESOURCE USAGE
+# MANAGE RESOURCE ALLOCATOIN
+# AUTOMATE LOG ANALYSIS
